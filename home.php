@@ -1,6 +1,10 @@
 <?php
 require('./read.php');
 require('./delete.php');
+require('./session.php');
+
+
+
 
 ?>
 
@@ -12,6 +16,10 @@ require('./delete.php');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -39,6 +47,9 @@ require('./delete.php');
                 <h2 class="card-title text-center">CRUD OPERATIONS</h2>
                 <a href="./add_student.php" class="btn btn-primary card-subtitle mb-2 " style="float: right;">Add
                     Data</a>
+                <form action="./logout.php" method="post">
+                    <input type="submit" value="Logout" class="btn btn-secondary">
+                </form>
                 <table class="table">
                     <thead>
                         <tr>
@@ -102,7 +113,6 @@ require('./delete.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
 </body>
 

@@ -2,6 +2,8 @@
 require('./read.php');
 require('./delete.php');
 require('./database.php');
+require('./session.php');
+
 
 
 // I-check kung mayroong POST request
@@ -20,6 +22,8 @@ if (isset($_POST['update'])) {
     if (empty($_POST['updatefname']) || empty($_POST['updatelname']) || empty($_POST['updatebday']) || empty($_POST['updategender'])) {
         // Kapag may kulang na field, maglabas ng error message
         echo "Error: Please fill out all fields.";
+        // echo "<script>Swal.fire('Error!', 'Please fill out all fields.', 'error');</script>";
+
     } else {
         // Kapag kompleto ang lahat ng mga field, iproseso ang update
         $updateId = $_POST['updateId'];
@@ -34,7 +38,7 @@ if (isset($_POST['update'])) {
         $stmt = mysqli_prepare($connection, $queryUpdate);
         mysqli_stmt_bind_param($stmt, "sssssi", $updatefname, $updatelname, $updatebday, $updateadded_at, $updategender, $updateId);
         mysqli_stmt_execute($stmt);
-
+        echo"Updated successfully";
         echo " <script>window.location.href = 'http://localhost/phpprac/home'; </script> ";
     }
 }
@@ -47,6 +51,9 @@ if (isset($_POST['update'])) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -69,11 +76,11 @@ if (isset($_POST['update'])) {
                     <div class="mb-3" style="display: flex; flex-direction: column;">
                         <input type="hidden" name="updateId" value="<?php echo $editId; ?>">
                         <input type="text" name="updatefname" placeholder="Enter Firstname"
-                            style="height: 30px; margin-bottom: 5px;" value="<?php echo $editfname; ?>">
+                            style="height: 30px; margin-bottom: 5px;" value="<?php echo $editfname; ?>" required>
                         <input type="text" name="updatelname" placeholder="Enter Lastname"
-                            style="height: 30px; margin-bottom: 5px;" value="<?php echo $editlname; ?>">
+                            style="height: 30px; margin-bottom: 5px;" value="<?php echo $editlname; ?>" required>
                         <input type="date" name="updatebday" placeholder="Enter Birthday"
-                            style="height: 30px; margin-bottom: 5px;" value="<?php echo $editbday; ?>">
+                            style="height: 30px; margin-bottom: 5px;" value="<?php echo $editbday; ?>"required>
                         <input type="text" name="updateadded_at" placeholder="Added Date"
                             style="height: 30px; margin-bottom: 5px;" value="<?php echo date('Y-m-d H:i:s'); ?>"
                             disabled>

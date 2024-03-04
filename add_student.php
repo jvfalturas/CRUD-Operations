@@ -33,14 +33,14 @@
                 <form method="post">
                     <div class="mb-3" style="display: flex; flex-direction: column;">
                         <input type="text" name="fname" placeholder="Enter Firstname"
-                            style="height: 30px; margin-bottom: 5px;">
+                            style="height: 30px; margin-bottom: 5px;" required>
                         <input type="text" name="lname" placeholder="Enter Lastname"
-                            style="height: 30px; margin-bottom: 5px;">
+                            style="height: 30px; margin-bottom: 5px;" required>
                         <input type="date" name="bday" placeholder="Enter Birthday"
-                            style="height: 30px; margin-bottom: 5px;">
+                            style="height: 30px; margin-bottom: 5px;" required>
                         <input type="text" name="added_at" placeholder="Added Date"
                             style="height: 30px; margin-bottom: 5px;" disabled>
-                        <select name="gender" style="height: 30px; margin-bottom: 5px;">
+                        <select name="gender" style="height: 30px; margin-bottom: 5px;" required>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
@@ -73,7 +73,7 @@
 
 
 <?php
-
+require('./session.php');
 require('./database.php');
 
 if (isset($_POST['submit'])) {

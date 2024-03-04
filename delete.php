@@ -9,6 +9,8 @@ if (isset($_POST['delete'])) {
     $queryDelete = "DELETE FROM student_list WHERE id = $deleteId"; // Siguraduhing isinama ang $delete sa loob ng single quotes.
     $sqlDelete = mysqli_query($connection, $queryDelete);
 
+ 
+
     // if ($sqlDelete) {
     //     echo "Record deleted successfully";
     // } else { 
@@ -16,7 +18,13 @@ if (isset($_POST['delete'])) {
     // }
 
     // Redirect sa tamang page o magbigay ng feedback sa user
+
+    echo "<script>
+    swal('Hello world!');
+    </script>";
+
     echo " <script>window.location.href = 'http://localhost/phpprac/home'; </script> ";
+
     
 }
 
