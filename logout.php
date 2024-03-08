@@ -1,5 +1,5 @@
 <?php
-require('./session.php');
+
 session_start();
 
 $_SESSION['status'] = 'invalid';

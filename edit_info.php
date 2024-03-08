@@ -38,8 +38,13 @@ if (isset($_POST['update'])) {
         $stmt = mysqli_prepare($connection, $queryUpdate);
         mysqli_stmt_bind_param($stmt, "sssssi", $updatefname, $updatelname, $updatebday, $updateadded_at, $updategender, $updateId);
         mysqli_stmt_execute($stmt);
-        echo"Updated successfully";
-        echo " <script>window.location.href = 'http://localhost/phpprac/home'; </script> ";
+        // echo"Updated successfully";
+        // echo " <script>window.location.href = 'http://localhost/phpprac/home'; </script> ";
+        echo "<script>
+                    Swal.fire('Success!', 'Successfully updated.', 'success').then(function() {
+                        window.location.href = 'http://localhost/phpprac/home';
+                    });
+                 </script>";
     }
 }
 ?>
